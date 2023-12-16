@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OpenLibrary</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NerdCoffeeAdmin.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Click here for our awesome collection!
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a asp-page="/Products/Books/Index" class="dropdown-item">Books</a></li>
+                                    <li><a asp-page="/Products/CDs/Index" class=" dropdown-item">CDs</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="navbar-brand float-right">Open Library</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+        <footer>
+            <div class="row">
+                <div class="col-md-4">
+                    <p>&copy; 2023 - Open Library</p>
+                </div>
+                <div class="col-md-4">
+                    <p>85th Street</p>
+                    <p>Palm Beach, CA 15642</p>
+                    <p>Phone: 555-123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-pic">
+                        @{
+                            var url = Context.Request.Path;
+                        }
+
+                        @if (IsSectionDefined("Footer"))
+                        {
+                            @RenderSection("Footer")
+                        }
+                        else
+                        {
+                            <img src="~/images/library/main_logo.png" height="100" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <partial name="_ValidationScriptsPartial" />
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

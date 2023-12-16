@@ -1,0 +1,51 @@
+﻿@page "cds/all"
+@model LibraryProject.Pages.Products.CDs.IndexModel
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>All of our current CDs</h1>
+
+<p>
+	<a asp-page="Create">Add your own CD</a>
+</p>
+<table class="table table-striped table-bordered">
+
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Singer</th>
+			<th>Album Cover</th>
+			<th>Price</th>
+			<th>Album</th>
+			<th>Release Year</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.CD)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.name</td>
+				<td>@item.singer</td>
+				<td><img src="~/images/cds/@item.coverImage" height="100" /></td>
+				<td>@item.price</td>
+				<td>@item.album</td>
+				<td>@item.releaseYear</td>
+				<td>
+					<a asp-page="./Edit" asp-route-id="@item.id">Edit CD</a> |
+					<a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+					<a asp-page="./Delete" asp-route-id="@item.id">Delete CD</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+
+</table>
+
+@section Footer
+{
+	<img src="~/images/library/library2.jpg" width="200" />
+}

@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container-fluid dashboard">
+    <h1 class="h2">Welcome to Open Library! The perfect library for all your needs</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Check out our upcoming events
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Upcoming events</h5>
+                    <p class="card-text">Want to know when is the next get-together? Click below!</p>
+                    <a asp-page="help" class="btn btn-success">Events</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

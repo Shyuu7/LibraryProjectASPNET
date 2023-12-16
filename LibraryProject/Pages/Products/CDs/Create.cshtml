@@ -1,0 +1,59 @@
+﻿@page "cds/add"
+@model LibraryProject.Pages.Products.CDs.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>CD</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CD.name" class="control-label">Name</label>
+                <input asp-for="CD.name" class="form-control" />
+                <span asp-validation-for="CD.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CD.singer" class="control-label">Singer</label>
+                <input asp-for="CD.singer" class="form-control" />
+                <span asp-validation-for="CD.singer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CD.price" class="control-label">Price</label>
+                <input asp-for="CD.price" class="form-control" />
+                <span asp-validation-for="CD.price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CD.album" class="control-label">Album</label>
+                <input asp-for="CD.album" class="form-control" />
+                <span asp-validation-for="CD.album" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CD.releaseYear" class="control-label">Year of release</label>
+                <input asp-for="CD.releaseYear" class="form-control" />
+                <span asp-validation-for="CD.releaseYear" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CD.Upload">Upload Cover</label>
+                <input asp-for="CD.Upload" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
